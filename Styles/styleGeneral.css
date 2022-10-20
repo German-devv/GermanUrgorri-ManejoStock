@@ -23,6 +23,7 @@ header {
 }
 
 section {
+    margin-top: 20px;
     min-height: 225px;
     margin: auto;
 
@@ -30,6 +31,10 @@ section {
 
 section div {
     padding-top: 10px;
+}
+
+td , th{
+    text-align: center !important;
 }
 
 .col a {
@@ -91,6 +96,10 @@ section div {
 
 }
 
+.button{
+    width: 100%;
+}
+
 #img1 {
     max-width: 600px;
 }
@@ -107,12 +116,16 @@ section div {
     #img2 {
         max-width: 800px;
     }
-
+    section {
+        width: auto;
+        margin-top: 50px;
+    }
 }
 
 @media (max-width: 1400px) {
     section {
         width: auto;
+        margin: 50px;
     }
 
     main {

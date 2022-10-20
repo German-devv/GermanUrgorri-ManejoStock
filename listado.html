@@ -12,23 +12,41 @@
     <section>
 
         <h1>Gestion de productos</h1>
-
+        <form action="" method="request">
         <table class="table table-striped">
             <thead>
-
-              <th>Detalle</th> <th>Codigo</th> <th>Nombre</th> <th>Acciones</th>
+              <tr><td colspan="4"><a href="crear.php"><button class="btn btn-success button">Crear</button></a></td></tr>
+              <th style="width:5%"><p> Detalles</p></th> <th style="width:5%"><p> Codigo</p></th> <th style="width:50%" ><p> Nombre</p></th> <th style="width:20%"><p> Acciones</p></th>
 
             </thead>
             <tbody>
+             
               <tr class="table-striped">
-                <td></td>
+                <td><submit type="button" class="btn btn-primary">Detalles</submit></td>
+
+                <td><p id="code">1</p></td>
+
+                <td><p id="name">Intel Core i5</p></td>
+                <td>
+                  <submit type="button" class="btn btn-warning">Acutalizar</submit>
+                  <submit type="button" class="btn btn-danger">Borrar</submit>
+                </td>
               </tr>
-              <tr>
-                <td></td>
+              <tr class="table-striped">
+                <td><submit type="button" class="btn btn-primary">Detalles</submit></td>
+
+                <td><p id="code">1</p></td>
+
+                <td><p id="name">Intel Core i5</p></td>
+                <td>
+                  <submit type="button" class="btn btn-warning">Acutalizar</submit>
+                  <submit type="button" class="btn btn-danger">Borrar</submit>
+                </td>
               </tr>
               
             </tbody>
           </table>
+        </form>
     </section>
 </body>
 </html>
