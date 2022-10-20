@@ -1,0 +1,130 @@
+html {
+    height: auto;
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient(#03dff8, #ffff00);
+}
+
+main {
+    margin-top: 20px;
+}
+
+section,
+header {
+    max-width: 1400px;
+
+    margin-bottom: 50px;
+    box-shadow: 10px 10px 10px;
+    background-color: white;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+section {
+    min-height: 225px;
+    margin: auto;
+
+}
+
+section div {
+    padding-top: 10px;
+}
+
+.col a {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Code For Custom Scrollbar Starts Here */
+/* For firefox */
+.sub-div {
+    max-height: 100vh;
+    overflow-y: scroll;
+    /*Thumb color and background color for firefox */
+    scrollbar-color: #00c6ff #242942;
+    overflow-x: none;
+  }
+  /*  ::-webkit- is for chrome */
+  ::-webkit-scrollbar {
+   
+    height:10px;
+    width: 1.2em;
+    overflow-x: none;
+  }
+  ::-webkit-scrollbar-track { 
+    margin: 25px ;
+    background-color: #242942;
+    margin-block: 0.25em;
+    border-radius: 15px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #00c6ff;
+    background: -webkit-linear-gradient(to right, #03dff8, #ffff00);
+    background: linear-gradient(to right, #03dff8, #ffff00);
+    border-radius: 15px;
+  }
+
+
+
+
+.rounded-circle {
+
+
+    width: 96px;
+    margin: 0 10px;
+
+    transition: all 0.3s;
+    transform-origin: 30% 60%;
+
+}
+
+.rounded-circle:hover {
+    transform: scale(1.2) translateY(-15px);
+
+    box-shadow: 5px 5px 10px #606060;
+    margin: 20px 20px 0 20px;
+
+}
+
+#img1 {
+    max-width: 600px;
+}
+
+#img2 {
+    max-height: 436px;
+    margin:auto;
+}
+
+
+
+
+@media (min-width: 1400px) {
+    #img2 {
+        max-width: 800px;
+    }
+
+}
+
+@media (max-width: 1400px) {
+    section {
+        width: auto;
+    }
+
+    main {
+        padding: 0 20px;
+    }
+}
+
+
+@media (max-width: 576px) {
+    section div {
+        display: flex !important;
+        flex-direction: column !important;
+
+    }
+}
