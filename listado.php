@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="Styles/styleGeneral.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Listado</title>
@@ -21,28 +22,16 @@
             </thead>
             <tbody>
              
-              <tr class="table-striped">
-                <td><submit type="button" class="btn btn-primary">Detalles</submit></td>
+              <?php 
+              include("php/mostrarListado.php");
+              mostrarListado();
+              
+              
+              ?>
 
-                <td><p id="code">1</p></td>
 
-                <td><p id="name">Intel Core i5</p></td>
-                <td>
-                  <submit type="button" class="btn btn-warning">Acutalizar</submit>
-                  <submit type="button" class="btn btn-danger">Borrar</submit>
-                </td>
-              </tr>
-              <tr class="table-striped">
-                <td><submit type="button" class="btn btn-primary">Detalles</submit></td>
 
-                <td><p id="code">1</p></td>
-
-                <td><p id="name">Intel Core i5</p></td>
-                <td>
-                  <submit type="button" class="btn btn-warning">Acutalizar</submit>
-                  <submit type="button" class="btn btn-danger">Borrar</submit>
-                </td>
-              </tr>
+              
               
             </tbody>
           </table>

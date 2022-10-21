@@ -45,34 +45,7 @@ td , th{
 }
 
 
-/* Code For Custom Scrollbar Starts Here */
-/* For firefox */
-.sub-div {
-    max-height: 100vh;
-    overflow-y: scroll;
-    /*Thumb color and background color for firefox */
-    scrollbar-color: #00c6ff #242942;
-    overflow-x: none;
-  }
-  /*  ::-webkit- is for chrome */
-  ::-webkit-scrollbar {
-   
-    height:10px;
-    width: 1.2em;
-    overflow-x: none;
-  }
-  ::-webkit-scrollbar-track { 
-    margin: 25px ;
-    background-color: #242942;
-    margin-block: 0.25em;
-    border-radius: 15px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #00c6ff;
-    background: -webkit-linear-gradient(to right, #03dff8, #ffff00);
-    background: linear-gradient(to right, #03dff8, #ffff00);
-    border-radius: 15px;
-  }
+
 
 
 
