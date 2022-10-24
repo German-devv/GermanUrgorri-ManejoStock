@@ -2,7 +2,7 @@
 
 function mostrarFamilias(){
 
-    $base = new PDO('mysql:host=localhost:4306;dbname=proyecto', 'usuario', 'clave');
+    $base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
 
     $tablaFamilias = $base->query("SELECT * FROM familias");
 

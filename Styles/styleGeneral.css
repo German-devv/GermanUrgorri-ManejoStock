@@ -45,8 +45,10 @@ td , th{
 }
 
 
-
-
+.input-group-text{
+    white-space:normal !important;
+    text-align: justify !important;
+}
 
 
 

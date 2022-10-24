@@ -15,7 +15,7 @@
     <section>
 
         <h1>Crear producto</h1>
-        <form action="server/crearProducto.php" method="get">
+        <form action="server/crearProducto.php" method="post">
             <table class="table table-striped">
                 <tbody>
 
@@ -75,7 +75,8 @@
                     <tr>
                         <td>
 
-                            <input type="submit" value="crear" class="btn btn-success">
+                        <input type="submit" value="crear" class="btn btn-success">
+                           
                             <input type="reset" value="Limpiar" class="btn btn-danger">
 
                         </td>

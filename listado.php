@@ -15,7 +15,7 @@
   <section>
 
     <h1>Gestion de productos</h1>
-    <form action="" method="request">
+    <form action="server/submitListado.php" method="post">
       <table class="table table-striped">
         <thead>
           <tr>
