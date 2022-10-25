@@ -14,12 +14,16 @@ if(isset($_POST['price'])) array_push($producto,$_POST['price']);
 if(isset($_POST['family'])) array_push($producto,$_POST['family']);
 
 
+//array_push($producto,$_COOKIE['id']);
+
+array_push($producto,1);
+
 
 
 $base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
 
 
-$insert = $base ->prepare("INSERT INTO `productos`(nombre, nombre_corto, descripcion, pvp, familia) VALUES (?,?,?,?,?)");
+$insert = $base ->prepare("UPDATE `productos` SET nombre=?, nombre_corto=?, descripcion=?, pvp=?, familia=? WHERE id=?");
 $insert ->execute($producto);
 
 

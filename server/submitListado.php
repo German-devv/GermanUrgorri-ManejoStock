@@ -7,30 +7,27 @@ $x = explode("-",$x);
 
 $action = $x[0];
 $id = $x[1];
-setcookie('id',$id, time() + 86400 , '/DSW%202022/GermanUrgorri-ManejoStock');
+
 
 
 if($action == 'detalle'){
-    header("Location: ../detalle.php", true, 301);
+
+    header("Location: ../detalle.php?id=$id", true, 301);
     exit();
 }
 
 if($action == 'actualizar'){
-    echo('actualizar');
+
+    header("Location: ../update.php?id=$id", true, 301);
+    exit();
 }   
 
 if($action == 'borrar'){
 
-    $base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
-
-    $deleteId = $base->prepare("DELETE FROM productos WHERE id = ?");
-    $deleteId ->execute([$id]);
-
-
-
-    header("Location: ../listado.php", true, 301);
+    header("Location: ../borrar.php?id=$id", true, 301);
     exit();
     
 }
+
 
 ?>
