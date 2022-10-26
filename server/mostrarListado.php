@@ -18,6 +18,7 @@ function mostrarListado()
 
                 <td><p>".$producto['nombre']."</p></td>
                 <td>
+                  <input type='submit' name='stock-".$producto['id']."' class='btn btn-info' value='Mover stock'>
                   <input type='submit' name='actualizar-".$producto['id']."' class='btn btn-warning' value='Acutalizar'>
                   <input type='submit' name='borrar-".$producto['id']."' class='btn btn-danger' value='Borrar'>
                 </td>

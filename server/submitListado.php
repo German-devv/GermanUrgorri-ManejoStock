@@ -1,6 +1,9 @@
 <?php
 
-$x =  array_keys($_POST)[0];
+
+
+
+if(isset($_POST)) $x =  array_keys($_POST)[0];
 
 $x = explode("-",$x);
 
@@ -27,6 +30,9 @@ if($action == 'borrar'){
     header("Location: ../borrar.php?id=$id", true, 301);
     exit();
     
+}if($action == 'stock'){
+    header("Location: ../moverStock.php?id=$id", true, 301);
+    exit();
 }
 
 
