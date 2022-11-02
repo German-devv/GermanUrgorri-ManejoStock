@@ -15,20 +15,24 @@
 
         <h1>Actualizar producto</h1>
         <?php
-
+        
+        include('server/accesoBase.php');
 
         $id = $_GET['id'];
 
 
 
-        $base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
+        
 
         $producto = $base->prepare("SELECT * from productos WHERE id=?");
         $producto->execute([$id]);
         $producto = $producto->fetch(PDO::FETCH_ASSOC);
         
 
+        $precio = explode('.',$producto['pvp']);
 
+
+        
 
         echo ("
 
@@ -56,11 +60,11 @@
                     <tr>
                         <td>
                             <div class='input-group mb-3'>
-                                <label class='input-group-text' for='price'>Precio:</label>
-                                <input type='number' value='" . $producto['pvp'] . "' name='price' id='price' min='0' style='width: 100px;'>
-                                <label class='input-group-text' for='price'>€</label>
-
-
+                                <label class='input-group-text' for='euro'>Precio:</label>
+                                <input type='number' value='" . $precio[0] . "' name='euro' id='euro' min='0' style='width: 100px;'>
+                                <label class='input-group-text' for='euro'>,</label>
+                                <input type='number' value='" . $precio[1] . "' name='cent' id='cent' min='0' max='99' style='width: 50px;'>
+                                <label class='input-group-text' for='euro'>€</label>
                             </div>
                         </td>
 

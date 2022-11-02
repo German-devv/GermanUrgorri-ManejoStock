@@ -1,5 +1,6 @@
 <?php
 
+include('accesoBase.php');
 
 $producto = [];
 
@@ -9,18 +10,24 @@ if(isset($_POST['shortName'])) array_push($producto,$_POST['shortName']);
 
 if(isset($_POST['description'])) array_push($producto,$_POST['description']);
 
-if(isset($_POST['price'])) array_push($producto,$_POST['price']);
+if(isset($_POST['euro'])) $euro = $_POST['euro'] ;
+
+if(isset($_POST['cent'])) $cent = $_POST['cent'] ;
+
+if($cent > 99) $cent = '99';
+
+array_push($producto, $euro.'.'.$cent);
 
 if(isset($_POST['family'])) array_push($producto,$_POST['family']);
 
 
 
 
-array_push($producto,1);
+array_push($producto,$_GET['id']);
 
 
 
-$base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
+
 
 
 $insert = $base ->prepare("UPDATE `productos` SET nombre=?, nombre_corto=?, descripcion=?, pvp=?, familia=? WHERE id=?");

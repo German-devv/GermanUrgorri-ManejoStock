@@ -14,10 +14,12 @@
 
     <section>
         <?php
+        include('server/accesoBase.php');
+
         $id = $_GET['id'];
 
 
-        $base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
+        
 
         $producto = $base->prepare("SELECT * from productos WHERE id=?");
         $producto->execute([$id]);

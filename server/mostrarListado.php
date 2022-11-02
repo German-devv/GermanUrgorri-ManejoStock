@@ -4,7 +4,7 @@
 function mostrarListado()
 {
 
-  $base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
+  include('accesoBase.php');
 
   $tablaProducto = $base->query("SELECT * FROM productos");
 

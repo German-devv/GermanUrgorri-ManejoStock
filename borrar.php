@@ -15,10 +15,12 @@
         <table class="table table-borderless">
 
             <?php
+            include('server/accesoBase.php');
 
+            
             $id = $_GET['id'];
 
-            $base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
+            
 
             $deleteId = $base->prepare("DELETE FROM productos WHERE id = ?");
             $deleteId->execute([$id]);
