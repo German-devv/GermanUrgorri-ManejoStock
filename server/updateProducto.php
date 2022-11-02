@@ -14,7 +14,7 @@ if(isset($_POST['price'])) array_push($producto,$_POST['price']);
 if(isset($_POST['family'])) array_push($producto,$_POST['family']);
 
 
-//array_push($producto,$_COOKIE['id']);
+
 
 array_push($producto,1);
 

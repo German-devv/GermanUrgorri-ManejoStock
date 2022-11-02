@@ -31,7 +31,7 @@ if($action == 'borrar'){
     exit();
     
 }if($action == 'stock'){
-    header("Location: ../moverStock.php?id=$id", true, 301);
+    header("Location: ../muevestock.php?id=$id", true, 301);
     exit();
 }
 

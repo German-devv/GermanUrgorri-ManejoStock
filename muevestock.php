@@ -11,36 +11,80 @@
 </head>
 
 <body>
-    <form action="server/crearProducto.php" method="post">
-
-
-        <?php
-
-        $id = $_GET['id'];
 
 
 
-        $base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
+    <?php
 
-        $producto = $base->prepare("SELECT nombre from productos WHERE id=?");
-        $producto->execute([$id]);
-        $producto = $producto->fetch(PDO::FETCH_ASSOC);
-        $producto = $producto['nombre'];
+    $id = $_GET['id'];
 
 
-        $tiendaStock = $base->prepare("SELECT unidades,nombre from stocks INNER JOIN tiendas ON stocks.tienda = tiendas.id where stocks.producto=?");
-        $tiendaStock->execute([$id]);
+
+    $base = new PDO('mysql:host=localhost;dbname=proyecto', 'usuario', 'clave');
+
+    $producto = $base->prepare("SELECT nombre from productos WHERE id=?");
+    $producto->execute([$id]);
+    $producto = $producto->fetch(PDO::FETCH_ASSOC);
+    $producto = $producto['nombre'];
 
 
-        foreach ($tiendaStock as $stock) {
+    $tiendaStock = $base->prepare("SELECT id,unidades,nombre from stocks INNER JOIN tiendas ON stocks.tienda = tiendas.id where stocks.producto=?");
+    $tiendaStock->execute([$id]);
 
 
 
 
-            echo ("
+
+
+    function selectUnidades($stockActual)
+    {
+        $options = "";
+
+        for ($i = 1; $i <= $stockActual; $i++) {
+            $options .= "<option value='$i'>$i </option>";
+        }
+
+        return $options;
+    }
+
+
+
+
+    function selectTienda($nombreTienda)
+    {
+
+        $options = "";
+
+        $totalTiendas = $GLOBALS['base']->query("SELECT id,nombre from tiendas");
+
+
+        foreach ($totalTiendas as $tienda) {
+
+            if ($nombreTienda != $tienda['id']) {
+                $options .= "<option value='" . $tienda['id'] . "'>" . $tienda['nombre'] . "</option>";
+            }
+        }
+
+
+
+        return $options;
+    }
+
+
+
+
+
+    foreach ($tiendaStock as $stock) {
+
+
+
+
+        echo ("
+            
+            <form action='server/updateStock.php' method='post'>
                 <section>
 
-                    <h1>Mover Stock de $producto</h1>
+                    <h1>Mover Stock de $producto en " . $stock['nombre'] . "</h1>
                     
                         <table class='table table-striped'>
                         
@@ -51,14 +95,14 @@
                                     <td>
                                         <div class='input-group mb-3'>
                                             <p class='input-group-text'>Tienda actual:</p>
-                                            <p class='input-group-text' id='originStore'> ".$stock['nombre']." </p>
+                                            <p class='input-group-text' id='originStore'> " . $stock['nombre'] . " </p>
                                         </div>
                                     </td>
 
                                     <td>
                                         <div class='input-group mb-3'>
                                             <p class='input-group-text'>Stock actual:</p>
-                                            <p class='input-group-text' id='actualStock'> ".$stock['unidades']." </p>
+                                            <p class='input-group-text' id='actualStock'> " . $stock['unidades'] . " </p>
                                         </div>
                                     </td>
 
@@ -68,8 +112,11 @@
                                     <td>
                                         <div class='input-group mb-3'>
                                             <label class='input-group-text' for='newStore'>Tienda de destino:</label>
-                                            <select class='form-control' type='text' name='newStore' id='newStore'>
+                                            <select class='form-control' type='text' name='newStore' id='newStore'>");
 
+
+        echo (selectTienda($stock['id']));
+        echo ("    
                                             </select>
                                         </div>
                                     </td>
@@ -78,8 +125,11 @@
                                         <div class='input-group mb-3'>
                                             <label class='input-group-text' for='numberUnits'>Nº unidades a mover:</label>
                                             <select class='form-control' type='text' name='numberUnits' id='numberUnits'>
+                                            ");
 
 
+        echo (selectUnidades($stock['unidades']));
+        echo ("
                                             </select>
                                         </div>
                                     </td>
@@ -98,11 +148,21 @@
 
                 
                 </section> 
+
+
+                <input type='hidden' name='idProducto' value=$id>
+                <input type='hidden' name='oldStore' value=" . $stock['id'] . ">
+                </form>
+
     ");
-        } ?>
-    </form>
+    }
+
+
+
+    ?>
+
     <section>
-    <a href="listado.php" class='btn btn-primary button'>Volver</a>
+        <a href="listado.php" class='btn btn-primary button'>Volver</a>
     </section>
 </body>
 
