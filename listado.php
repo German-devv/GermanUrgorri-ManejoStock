@@ -12,8 +12,13 @@
 </head>
 
 <body>
-  <section>
+  <?php
 
+    include('server/accesoBase.php');
+
+  ?>
+  <section>
+  
     <h1>Gestion de productos</h1>
     <form action="server/submitListado.php" method="post">
       <table class="table table-striped">

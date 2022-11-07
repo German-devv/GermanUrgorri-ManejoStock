@@ -11,7 +11,11 @@
 </head>
 
 <body>
+<?php
 
+include('server/accesoBase.php');
+
+?>
     <section>
         <?php
         include('server/accesoBase.php');

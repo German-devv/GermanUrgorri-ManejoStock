@@ -11,6 +11,11 @@
 </head>
 
 <body>
+<?php
+
+include('server/accesoBase.php');
+
+?>
     <section>
         <table class="table table-borderless">
 
