@@ -29,12 +29,30 @@ section {
 
 }
 
-section div {
-    padding-top: 10px;
-}
 
 td , th{
     text-align: center !important;
+}
+
+
+.td-submits {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.section-header{
+
+    display: flex ;
+    justify-content:space-between;
+
+
+}
+
+.section-header div a{
+
+    margin-top:10px;
+
 }
 
 .col a {

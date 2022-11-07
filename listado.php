@@ -17,9 +17,20 @@
     include('server/accesoBase.php');
 
   ?>
+
+
+
+
   <section>
   
+  <div class="section-header">
     <h1>Gestion de productos</h1>
+
+    <div>
+    <a href="" class="btn btn-warning">Inciar sesion</a>
+    <a href="" disabled="disabled" class="btn btn-primary">Resgistrarme (desabilitado)</a>
+  </div>
+  </div>
     <form action="server/submitListado.php" method="post">
       <table class="table table-striped">
         <thead>
