@@ -14,7 +14,9 @@
 <body>
   <?php
 
-    include('server/accesoBase.php');
+  include('server/accesoBase.php');
+  include('server/usuarios.php');
+  include('server/mostrarListado.php');
 
   ?>
 
@@ -22,15 +24,16 @@
 
 
   <section>
-  
-  <div class="section-header">
-    <h1>Gestion de productos</h1>
 
-    <div>
-    <a href="" class="btn btn-warning">Inciar sesion</a>
-    <a href="" disabled="disabled" class="btn btn-primary">Resgistrarme (desabilitado)</a>
-  </div>
-  </div>
+    <div class="section-header">
+      <h1>Gestion de productos</h1>
+
+      <form method="post" action="listado.php">
+        <input type="submit" class="btn btn-warning" value="Inciar sesion">
+
+        <a href="" disabled="disabled" class="btn btn-primary">Resgistrarme (desabilitado)</a>
+      </form>
+    </div>
     <form action="server/submitListado.php" method="post">
       <table class="table table-striped">
         <thead>
@@ -58,13 +61,10 @@
         <tbody>
 
           <?php
-          include("server/mostrarListado.php");
+
           mostrarListado();
 
           ?>
-
-
-
 
 
         </tbody>
